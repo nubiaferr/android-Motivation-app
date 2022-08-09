@@ -6,3 +6,4 @@ Studying:
 - relative and linear layout
 - Shared Preferences
 - filter logic on click
+- lifecycle
