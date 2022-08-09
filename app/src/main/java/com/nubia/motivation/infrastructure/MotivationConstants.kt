@@ -10,4 +10,10 @@ package com.nubia.motivation.infrastructure
          const val HAPPY = 2
          const val SUNNY = 3
      }
+
+     object LANGUAGE {
+         const val PT = "pt"
+         const val EN = "en"
+         const val FR = "fr"
+     }
 }

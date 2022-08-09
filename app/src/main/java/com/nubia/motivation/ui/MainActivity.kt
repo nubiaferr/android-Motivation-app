@@ -10,6 +10,7 @@ import com.nubia.motivation.R
 import com.nubia.motivation.data.Mock
 import com.nubia.motivation.infrastructure.SecurityPreferences
 import com.nubia.motivation.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -56,11 +57,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val name = SecurityPreferences(this).getString(
             MotivationConstants.KEY.USER_NAME
         )
-        
+
         if (name == "") {
-            binding.textUserName.text = "Olá! Informe seu nome"
+            binding.textUserName.text = getString(R.string.hello)
         } else {
-            binding.textUserName.text = "Olá, ${name}!"
+            binding.textUserName.text = "${getString(R.string.hello)}, ${name}!"
         }
 
     }
@@ -110,7 +111,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleNextPhrase() {
-        val phrase = Mock().getPhrase(categoryId)
+        val lang = Locale.getDefault().language
+        val phrase = Mock().getPhrase(categoryId, lang)
         binding.textPhrase.text = phrase
     }
 }
